@@ -37,6 +37,7 @@ public class Program {
 
         // 内存流使用(转大写)
         testMemorySteam();
+        testMemoryStrem2();
     }
 
     public static void testDate2String() {
@@ -104,9 +105,23 @@ public class Program {
         String msg = "hello world!!!";
         InputStream input = new ByteArrayInputStream(msg.getBytes());
         OutputStream output = new ByteArrayOutputStream();
-        int byt = 0;
-        while ((byt = input.read()) != -1) {
-            output.write(Character.toUpperCase(byt));
+        int byTemp = 0; // !!!注意read()方法返回byte
+        while ((byTemp = input.read()) != -1) {
+            output.write(Character.toUpperCase(byTemp));
+        }
+        System.out.println(output); // 调用toString方法
+        input.close();
+        output.close();
+    }
+
+    public static void testMemoryStrem2() throws IOException {
+        String msg = "hello world!!!";
+        InputStream input = new ByteArrayInputStream(msg.getBytes());
+        OutputStream output = new ByteArrayOutputStream();
+        byte[] data = new byte[2];
+        int len = 0; // !!!注意read(byte[])方法返回length
+        while ((len = input.read(data)) != -1) {
+            output.write(data, 0, len);
         }
         System.out.println(output); // 调用toString方法
         input.close();
