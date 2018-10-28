@@ -1,6 +1,7 @@
 package com.demo.java.basic;
 
 
+import java.io.*;
 import java.text.MessageFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -31,8 +32,11 @@ public class Program {
         // // 随机数
         // testRandom();
 
-        // 资源文件或本地化
-        testResourceBundle();
+        // // 资源文件或本地化
+        // testResourceBundle();
+
+        // 内存流使用(转大写)
+        testMemorySteam();
     }
 
     public static void testDate2String() {
@@ -94,6 +98,19 @@ public class Program {
         String zhMsg = zhResource.getString("welcome.info");
         String zhContent = MessageFormat.format(zhMsg, "张三", "李四");
         System.out.println(zhContent);
+    }
+
+    public static void testMemorySteam() throws IOException {
+        String msg = "hello world!!!";
+        InputStream input = new ByteArrayInputStream(msg.getBytes());
+        OutputStream output = new ByteArrayOutputStream();
+        int byt = 0;
+        while ((byt = input.read()) != -1) {
+            output.write(Character.toUpperCase(byt));
+        }
+        System.out.println(output); // 调用toString方法
+        input.close();
+        output.close();
     }
 
     /**
