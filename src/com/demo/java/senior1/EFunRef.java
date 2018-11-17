@@ -1,4 +1,4 @@
-package com.demo.java.senior;
+package com.demo.java.senior1;
 
 /**
  * @description: 方法引用

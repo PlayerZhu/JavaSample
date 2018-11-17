@@ -1,4 +1,4 @@
-package com.demo.java.enumx;
+package com.demo.java.enumT;
 
 /**
  * @description: 用作常量

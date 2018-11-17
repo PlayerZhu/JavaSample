@@ -1,4 +1,4 @@
-package com.demo.java.senior;
+package com.demo.java.senior1;
 
 /**
  * @description: 多线程：生产者和消费者模型

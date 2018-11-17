@@ -1,12 +1,11 @@
-package com.demo.java.senior;
+package com.demo.java.senior1;
 
 /**
  * @description: 范型示例
  * @author: maker
  * @create: 2018/10/13
  */
-public class BGeneric<T> {
-
+public class CGeneric<T extends Number> {
     private T x;
     private T y;
 
@@ -35,28 +34,16 @@ public class BGeneric<T> {
         BGeneric<Double> g1 = new BGeneric<Double>();
         g1.setX(13.0);
         g1.setY(39.3);
-        // print(g1); // 设置了下限不能调用
-        BGeneric<String> g2 = new BGeneric<String>();
-        g2.setX("hello");
-        g2.setY("world");
-        print(g2);
+        print(g1); // 设置了上限
 
-        Integer[] array1 = fun(1, 2, 3, 4, 5);
-        for (int i : array1) {
-            System.out.println(i);
-        }
-        String[] array2 = fun("hello", "world");
-        for (String str : array2) {
-            System.out.println(str);
-        }
+        BGeneric<Integer> g2 = new BGeneric<Integer>();
+        g2.setX(10);
+        g2.setY(398);
+        print(g2); // 设置了上限
     }
 
-    private static void print(BGeneric<? super String> generic) {
+    private static void print(BGeneric<? extends Number> generic) {
         String msg = "x=" + generic.getX() + ",y=" + generic.getY();
         System.out.println(msg);
-    }
-
-    private static <T> T[] fun(T... args) {
-        return args;
     }
 }

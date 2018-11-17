@@ -1,4 +1,4 @@
-package com.demo.java.senior;
+package com.demo.java.senior1;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

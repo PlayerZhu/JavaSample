@@ -1,4 +1,4 @@
-package com.demo.java.senior;
+package com.demo.java.senior1;
 
 /**
  * @description: 线程隔离数据对象(减少引用传递)

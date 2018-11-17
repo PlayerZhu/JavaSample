@@ -1,11 +1,12 @@
-package com.demo.java.enumx;
+package com.demo.java.enumT;
+
 
 /**
- * @description: 枚举包含方法
+ * @description:
  * @author: zhusimu
  * @create: 2018/9/19
  */
-public enum CColor {
+public enum DColor implements DBehaviour {
     RED("红色", 1),
     YELLOW("黄色", 2),
     GREEN("绿色", 3),
@@ -14,7 +15,7 @@ public enum CColor {
     private String name;
     private int index;
 
-    private CColor(String name, int index) {
+    private DColor(String name, int index) {
         this.name = name;
         this.index = index;
     }
@@ -35,17 +36,18 @@ public enum CColor {
         this.index = index;
     }
 
-    public static String getName(int index) {
-        for (CColor c : CColor.values()) {
-            if (c.getIndex() == index) {
-                return c.name;
-            }
-        }
-        return null;
+    @Override
+    public void print() {
+        System.out.println(this.index + ":" + this.name);
     }
 
     @Override
-    public String toString() {
-        return this.index + "-" + this.name;
+    public String getInfo() {
+        return this.name;
     }
+}
+
+interface DBehaviour {
+    void print();
+    String getInfo();
 }
