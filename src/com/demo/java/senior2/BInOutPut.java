@@ -1,5 +1,7 @@
 package com.demo.java.senior2;
 
+import org.junit.Test;
+
 import java.io.*;
 import java.util.Scanner;
 
@@ -9,13 +11,9 @@ import java.util.Scanner;
  * @create: 2018/11/5
  */
 public class BInOutPut {
-    public static void main(String[] args) throws Exception {
-        // !!!除了二进制文件对拷，信息输出使用打印流，输入使用Scanner
-        testPrintStream();
-        testScanner();
-    }
 
-    private static void testPrintStream() throws FileNotFoundException {
+    @Test
+    public void testPrintStream() throws FileNotFoundException {
         String path = "/Users/maker/JavaProjects/info.txt";
         PrintWriter printWriter = new PrintWriter(new FileOutputStream(new File(path)));
         String name = "zhangshan";
@@ -25,7 +23,9 @@ public class BInOutPut {
         printWriter.close();
     }
 
-    private static void testScanner() throws FileNotFoundException {
+    @Test
+    public void testScanner() throws FileNotFoundException {
+        // !!!除了二进制文件对拷，信息输出使用打印流，输入使用Scanner
         String path = "/Users/maker/JavaProjects/info.txt";
         String format = "\\d{4}-\\d{2}-\\d{2}";
         Scanner scanner = new Scanner(new FileInputStream(new File((path))));

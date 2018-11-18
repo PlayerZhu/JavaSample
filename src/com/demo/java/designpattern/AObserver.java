@@ -1,5 +1,7 @@
 package com.demo.java.designpattern;
 
+import org.junit.Test;
+
 import java.util.Observable;
 import java.util.Observer;
 
@@ -9,10 +11,12 @@ import java.util.Observer;
  * @create: 2018/10/21
  */
 public class AObserver {
-    public static void main(String[] args) {
-        Peron peronA = new Peron("张三");
-        Peron peronB = new Peron("李四");
-        Peron peronC = new Peron("王五");
+
+    @Test
+    public void testObserver(){
+        APeron peronA = new APeron("张三");
+        APeron peronB = new APeron("李四");
+        APeron peronC = new APeron("王五");
         House house = new House(7000.00);
         house.addObserver(peronA);
         house.addObserver(peronB);
@@ -21,10 +25,10 @@ public class AObserver {
     }
 }
 
-class Peron implements Observer {
+class APeron implements Observer {
     private String name;
 
-    public Peron(String name) {
+    public APeron(String name) {
         this.name = name;
     }
 
